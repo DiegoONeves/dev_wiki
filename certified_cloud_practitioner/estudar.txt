@@ -1,0 +1,26 @@
+=================================================================================================
+ESTUDAR DEPOIS
+=================================================================================================
+AWS Shared Responsibility Model
+AWS Artifact
+AWS Config
+AWS Database Migration Service
+AWS DynamoDB - Read Consistency
+AWS Inspector
+https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html
+AWS Guard Dutty
+AWS CodeStar
+AWS Athena
+AWS DataSync
+AWS Global Accelerator
+https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege
+===================================================================================================
+PALAVRAS INGLÊS
+===================================================================================================
+Ensure = garantir
+Enhance = realçar
+forecast = prever
+threat = ameaça
+
+1. https://www.youtube.com/watch?v=LqXqBgIUbJg
+1 - https://www.youtube.com/watch?v=ZY3-MFxVdEw

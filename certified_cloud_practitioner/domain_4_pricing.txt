@@ -1,0 +1,115 @@
+==========================================================================================================================================
+							GERAL 
+==========================================================================================================================================
+Usuário da conta raiz: (diegoneves89@hotmail.com)
+- É o único que consegue alterar o tipo de plano de suporte.
+- Recomenda-se após login inicial, excluir as chaves de acesso do usuário raiz da conta da AWS como melhor prática.
+
+Serviços relacionados a custos:
+
+Budgets: Rastrear e categorizar custos em um nível detalhado. Permite criar alertas customizados que irão automaticamente notificar quando os seus custos da AWS excederem ou estiver próximos de exceder.
+
+Cost Explorer: gerenciamento de alocações de custo para cobrança. Criar tags e associar aos serviços, permitindo que você faça o acompanhamento de custos por tag.
+Cost and Usage report: permite acessar os datas de uma menor granularidade sobre os custos e utilização.
+
+Benefício de pagamento consolidado das contas da AWS: Combinar descontos de uso de volume. Exemplo seria dividir os benefícios de custo entre instâncias EC2 do tipo 'Reserved' entre as contas da AWS.
+
+Benefícios de custos usando AWS:
+- Custo total de ownership (TCO) reduzidos.
+- Despesa operacional reduzida (OPEX).
+
+Recursos/serviços utilizados para monitoramento de custos e despesas para uma conta AWS:
+- AWS Cost and Usage report.
+- Billing alerts (alertas de cobrança).
+- Amazon CloudWatch alarms.
+
+Características de custos efetivos para uma carga de trabalho com demanda de usuário dinâmica:
+- Elasticidade.
+- Precificação "pay-as-you-go".
+
+
+==========================================================================================================================================
+							DEFINIÇÃO DE PREÇO 
+==========================================================================================================================================
+1. PAGAMENTO CONFORME O USO (PAY AS YOU GO):
+Com o modelo de pagamento conforme o uso, você pode adaptar sua empresa de acordo com a necessidade e não com base em previsões, o que reduz o risco de provisionamento em excesso ou perda de capacidade.
+
+2. PAGUE MENOS USANDO MAIS:
+Com a AWS, você pode obter descontos baseados em volume e obter economias substanciais à medida que o seu uso aumenta. Para serviços como o S3, a definição de preço é feita em camadas, o que significa que quanto mais você usar, menor será o preço por GB.
+
+3. ECONOMIZE AO CONFIRMAR
+Para os produtos AWS Machine Learning e AWS Machine Learning, os Savings Plans oferecem economia em relação ao plano sob demanda em troca de um compromisso de usar uma quantia específica (medida em USD/hora) de um produto ou uma categoria de produtos da AWS, por um período de um ou três anos.
+
+Regiões podem ter preços diferentes
+Muitos serviços tem free-tier
+
+==========================================================================================================================================
+DADOS DE ENTRADA NÃO SÃO COBRADOS. DADOS DE SAÍDA, COMPUTACIONAIS E REDE SEMPRE SÃO COBRADOS DE ACORDO COM CADA SERVIÇO!
+==========================================================================================================================================
+
+==========================================================================================================================================
+						O QUE É COBRADO?
+==========================================================================================================================================
+- Transferência de dados de saída.
+- Computação.
+- Rede.
+- Armazenamento.
+
+==========================================================================================================================================
+						O QUE NÃO É COBRADO?
+==========================================================================================================================================
+- Transferência de dados de entrada.
+- Transferência de dados entre serviços de uma mesma região da AWS.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+A AWS oferece diversos serviços gratuitamente, como por exemplo o VPC, IAM, Faturamento consolidado, Elastic Beanstalk, dimensionamento automático, OpsWorks e CloudFormation. No entanto, você poderá ser cobrado pela utilização de outros serviços usados em conjunto.
+
+==========================================================================================================================================
+							CALCULADORA DE CUSTOS
+==========================================================================================================================================
+Simple Monthly Calculator: Calculadora de gastos Mensal
+- Visão estimada de quanto irá gastar por mês da AWS, de alguns serviços.
+
+Total Cost of Ownership (TCO) Calculator: Calculadora que serve como um guia para que o usuário saiba os custos que irá economizar ao migrar de on-premise para AWS.
+Ao construir um modelo de custos totais (Total Cost of Ownership - TCO), os elementos que devem ser considerados:
+- COMPUTAÇÃO
+- ARMAZENAMENTO
+- REDE
+Ao migrar para a AWS, há a redução de custos de TCO, por estar minimizando grandes despesas de capital (CapEx).
+
+==========================================================================================================================================
+						MODELOS DE PLANO DE SUPORTE
+==========================================================================================================================================
+Abaixo segue a ordem dos planos, do mais barato até o mais caro. Cada plano subsequente irá herdar todas as opções disponíveis do plano anterior.
+------------------------------------------------------------------------------------------------------------------------------------------
+STANDARD (BÁSICO)
+------------------------------------------------------------------------------------------------------------------------------------------
+O suporte básico está incluído para todos os clientes da AWS e oferece:
+
+- Atendimento ao cliente e comunidades: Acesso a atendimento ao cliente, documentação, whitepappers e fóruns de suporte 24 horas por dia, 7 dias por semana.
+- AWS Trusted Advisor: Acesso às sete principais verificações do Trusted Advisor e instruções para provisionar seus recursos de acordo com as melhores práticas para aumentar a performance e aprimorar a segurança.
+- AWS Personal Health Dashboard: Uma visualização personalizada da integridade dos serviços da AWS e envio de alertas quando os seus recursos forem afetados.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+DEVELOPER (DESENVOLVEDOR)
+------------------------------------------------------------------------------------------------------------------------------------------
+Recomendado se você está experimentando ou testando a AWS.
+- Acesso aos associados do Cloud Support pelo e-mail em horário comercial.
+- Instruções de arquitetura em geral.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+BUSINESS (NEGÓCIOS)
+------------------------------------------------------------------------------------------------------------------------------------------
+Recomendado se você tem cargas de trabalho de produção na AWS.
+- AWS Trusted Advisor - conjunto completo.
+- Acesso aos engenheiros do Cloud Support por telefone, e-mail e chat.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+ENTERPRISE (EMPRESARIAL)
+------------------------------------------------------------------------------------------------------------------------------------------
+Recomendado se você tem cargas de trabalho empresariais e/ou de missão crítica na AWS.
+- Equipe de suporte concierge (time de suporte para contas com plano de suporte de nível empresarial. Fornecem suporte para assuntos sobre cobrança e dúvidas da conta).
+- Gerente técnico da conta designado. (AWS Technical Account Manager)
+- Análises do Well-Architected.
+- Gestão de eventos de infraestrutura sem custos adicional.
+

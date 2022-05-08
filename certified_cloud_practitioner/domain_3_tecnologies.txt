@@ -1,0 +1,127 @@
+==========================================================================================================================================
+						SERVIÇOS DA AWS
+==========================================================================================================================================
+--------------------------------------------------------------------------------------------
+COMPUTAÇÃO
+--------------------------------------------------------------------------------------------
+Amazon EC2: Servidores virtuais na nuvem
+Amazon ECS: Executar e gerenciar contêineres do Docker
+Amazon Elastic Container Registry: Armazenar e recuperar imagens do Docker
+Amazon Lightsail: Execute e gerencie servidores virtuais privados
+AWS Bath: Execute trabalhos em lote em qualquer escala
+AWS Elastic Beanstalk: Executar e gerenciar aplicativos na web
+AWS Fargate: Execute contêineres sem gerenciar servidores ou clusters
+AWS Lambda: Execute seu código em resposta a eventos
+Amazon Elastic Container Service for Kubernetes: Execute Kubernetes gerenciados na AWS
+--------------------------------------------------------------------------------------------
+ARMAZENAMENTO
+--------------------------------------------------------------------------------------------
+Amazon S3: Armazenamento escalável na nuvem
+Amazon EBS: Armazenamento de blocos para EC2 
+Amazon Elastic File System: Armazenamento gerenciado de arquivos do EC2
+Amazon Glacier: Armazenamento de arquivamentos com baixo custo na nuvem
+Amazon FSx for Lustre: Sistema de arquivos de alta performance para processamento de dados do Amazon S3 ou locais
+Amazon FSx for Windows File Server: Sistema gerenciado de arquivos nativos do Windows
+AWS Storage Gateway: Integração de armazenamento híbrido
+AWS Snowball: Transporte de dados na escala de petabytes
+AWS Snowball Edge: Transporte de dados na escala de petabytes com computação integrada
+AWS Snowmobile: Transporte de dados na escala de exabytes
+AWS Elastic Disaster Recovery: Recuperação de aplicações escalável e com bom custo-benefício
+AWS Backup: Gerencie e automatize backups de maneira centralizada
+--------------------------------------------------------------------------------------------
+BANCO DE DADOS
+--------------------------------------------------------------------------------------------
+Amazon Aurora: Banco de dados relacional gerenciado de alta performance
+Amazon RDS: Serviço de banco de dados relacional gerenciado para MySQL, PostgreSQL, Oracle, SQL Server e MariaDB
+Amazon DynamoDB: Banco de dados NoSQL gerenciado
+Amazon ElastiCache: Sistema de cache de memória
+Amazon Redshift: Data warehousing rápido, simples e econômico
+Amazon Neptune: Serviço gerenciado de banco de dados gráfico
+AWS Database Migration Service: Migre bancos de dados com tempo de inatividade mínimo
+Amazon Timestream: Banco de dados de séries temporais totalmente gerenciado
+Amazon Quantum Ledger Database (QLDB): Banco de dados gerenciado de livros contábeis
+Amazon DocumentDB (com compatibilidade com o MongoDB): Banco de dados gerenciado de documentos
+--------------------------------------------------------------------------------------------
+MIGRAÇÃO E TRANSFERÊNCIA
+--------------------------------------------------------------------------------------------
+AWS Application Discovery Service: Descubra aplicativos locais para agilizar a migração
+AWS Application Migration Service: Migre aplicações rapidamente com a AWS
+AWS Database Migration Service: Migre bancos de dados com tempo de inatividade mínimo
+AWS Migration Hub: Acompanhe as migrações em um único lugar
+AWS Server Migration Service: Migre servidores locais para a AWS
+AWS Snowball: Transporte de dados na escala de petabytes
+AWS Snowball Edge: Transporte de dados na escala de petabytes com computação integrada
+AWS Snowmobile: Transporte de dados na escala de exabytes
+AWS DataSync: Transferência de dados simples, rápida e online
+AWS Transfer for SFTP: Serviço de SFTP gerenciado
+--------------------------------------------------------------------------------------------
+REDES E ENTREGA DE CONTEÚDO
+--------------------------------------------------------------------------------------------
+Amazon VPC: Recursos de nuvem isolados
+AWS PrivateLink: Acesse com segurança serviços hospedados na AWS
+Amazon CloudFront: Rede de entrega de conteúdo global
+Amazon Route 53: Domain Name System escalável
+Amazon API Gateway: Crie, implante e gerencie APIs
+AWS Direct Connect: Conexão de rede dedicada à AWS
+AWS Cloud Map: Registro de recursos de aplicativos para microsserviços
+AWS App Mesh: Monitore e controle microsserviços
+AWS Global Accelerator: Aprimore a disponibilidade e a performance de aplicativos
+AWS Transit Gateway: Escale facilmente VPCs e conexões de contas
+Elastic Load Balancing (AWS ELB): Balanceamento de carga em alta escala
+
+==========================================================================================================================================
+						AWS S3
+==========================================================================================================================================
+É uma Web Stores
+Permite acessos via API (acesso por command line)
+
+Além de um bucket ter o propósito de container de objetos deve-se ficar atento ao nome definido nele pois não existe a possibilidade de renomeá-lo. Além disso esse nome fica exposto na URL.
+
+PALAVRAS CHAVES:
+WebStore,Armazenamento,Performance
+
+==========================================================================================================================================
+							AWS Trusted Advisor
+==========================================================================================================================================
+O Trusted Advisor inspeciona seu ambiente da AWS e faz recomendações para economizar, melhorar a performance do sistema ou corrigir falhas de segurança. 
+
+5 novas verificações de otimização de custos no Trusted Advisor:
+1. COST OPTMIZATION
+2. PERFORMANCE
+3. SECUTIRY
+4. FAULT TOLERANCE
+5. SERVICE LIMITS
+
+Os clientes da AWS com o nível Business ou Enterprise de suporte agora podem usar suas contas mestres (pagador) para acessar essas verificações juntamente com as recomendações da categoria de Otimização de custos existentes no AWS Trusted Advisor. O Trusted Advisor fornece verificações em 4 outras categorias, incluindo Segurança, Desempenho, Tolerância a falhas e Limites de serviço. Os clientes podem usar todos os mecanismos existentes, incluindo o console do Trusted Advisor, a API de Suporte, a notificação por e-mail e o CloudWatch para acessar essas verificações. 
+
+Benefícios
+As verificações do Trusted Advisor analisam seu ambiente da AWS e recomendam ações para seguir as práticas recomendadas.
+
+PAVAVRAS CHAVES:
+Inspeção,Recomendação,Otimização,Custos,Falhas,
+==========================================================================================================================================
+							AWS X-Ray
+==========================================================================================================================================
+O AWS X-Ray ajuda desenvolvedores a analisar e depurar aplicações distribuídas de produção, como as criadas usando uma arquitetura de microsserviços. Com o X-Ray, é possível entender a performance de aplicativos e de seus serviços subjacentes para identificar e solucionar problemas e erros de performance. O X-Ray disponibiliza uma visualização completa sobre as solicitações, conforme elas percorrem o aplicativo, além de mostrar um mapa dos componentes subjacentes do aplicativo. É possível usar o X-Ray para analisar as aplicações em desenvolvimento e em produção, abrangendo de simples aplicações de três níveis a aplicações complexas de microsserviços compostas por milhares de serviços.
+
+PAVAVRAS CHAVES:
+Monitoramento,Aplicações,Microsserviços,Erros,Performance,Visualização,Produção
+
+==========================================================================================================================================
+							AWS CloudTrail
+==========================================================================================================================================
+Rastreie atividades dos usuários e uso de APIs
+
+O AWS CloudTrail monitora e registra a atividade da conta por toda a infraestrutura da AWS, oferecendo controle sobre o armazenamento, análise e ações de remediação.
+
+PALAVRAS CHAVES:
+Rastreamento,APIs,Atividades,Contas
+==========================================================================================================================================
+							AWS Artifact
+==========================================================================================================================================
+O AWS Artifact é sua primeira opção de recurso para informações relacionadas à conformidade que importam para você. Ele oferece acesso sob demanda aos relatórios de segurança e conformidade da AWS e a acordos online específicos. Entre os relatórios disponíveis no AWS Artifact, estão o Service Organization Control (SOC – Controle de organização de serviço) e o Payment Card Industry (PCI – Setor de cartões de pagamento), bem como certificações de órgãos de credenciamento de diversas áreas geográficas e setores de conformidade que validam a eficácia da implementação e operação dos controles de segurança da AWS. Os acordos disponíveis no AWS Artifact incluem o Business Associate Addendum (BAA – Adendo de associado comercial) e o Nondisclosure Agreement (NDA – Acordo de confidencialidade).
+
+ISO 27001
+
+PALAVRAS CHAVES:
+Relatórios,Informação,Segurança,Conformidades,Compliance,Portfolio,Audit,Reports
