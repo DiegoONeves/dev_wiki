@@ -13,15 +13,36 @@ git branch nome_da_branch //criar uma nova branch
 git branch //lista todas as branches
 git checkout nome_da_branch //mudar para a branch
 git pull //atualiza a branch atual
-
+git push -u origin master //faz gravação dos commits locais para o servidor
+--------------------------------------------------------------------------------------------------------------------
+DESFAZENDO ALGO NO GIT => SUPER IMPORTANTE
+--------------------------------------------------------------------------------------------------------------------
+git checkout --index.html //descartar uma mudança antes de add (stage)
+git reset HEAD index.html //unstage
+git revert id_do_commit //para pegar o id do commit, basta dar um git log
 --------------------------------------------------------------------------------------------------------------------
 REALIZANDO UM MERGE => SUPER IMPORTANTE
 --------------------------------------------------------------------------------------------------------------------
 git checkout master git merge nome_da_branch_feature //realizando merge
 git checkout master / git rebase titulo //pega todos os commit de titulo, coloca na master e deixa o último commit da master em último
-
+--------------------------------------------------------------------------------------------------------------------
+STASH: Sabe quando você precisa resolver um bug na branch dev e continuar seu trabalho depois?
+--------------------------------------------------------------------------------------------------------------------
+git stash //salva algo para terminar depois
+git stash list //mostra todos os trabalhos salvos
+git stash apply 0 //aplica uma stash por id
+git stash drop 0 //remove uma stash
+git stash pop 0 //traz a stash e remove
+--------------------------------------------------------------------------------------------------------------------
+VIAJANDO NO TEMPO, TRAZER UM COMMIT DO PASSADO
+--------------------------------------------------------------------------------------------------------------------
+git checkout id_do_commit
+git checkout id_do_commit / git checkout -b nova_branch //agora aquelas alterações estarão vinculadas a uma branch
+--------------------------------------------------------------------------------------------------------------------
+git diff id_commit_inicial..id_commit_final //realiza comparações entre commits
 
 IMPORTANTE
+https://git-school.github.io/visualizing-git/#free
 HEAD: Estado atual do nosso código, ou seja, onde o Git os colocou
 Working tree: Local onde os arquivos realmente estão sendo armazenados e editados
 index: Local onde o Git armazena o que será commitado, ou seja, o local entre a working tree e o repositório Git em si.
