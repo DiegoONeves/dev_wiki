@@ -1,0 +1,15 @@
+===================================================================================================================
+PRINCIPAIS COMANDOS DO GIT
+===================================================================================================================
+git init //inicia um repositório
+git status //verifica status dos arquivos
+git config --local //(para o projeto) 
+git config --global //(para o computador)
+git oneline //visualizar commits
+git log -p //visualizar modificações, basta digitar q para sair do modo scroll
+https://devhints.io/git-log //mais opções de git log
+
+IMPORTANTE
+HEAD: Estado atual do nosso código, ou seja, onde o Git os colocou
+Working tree: Local onde os arquivos realmente estão sendo armazenados e editados
+index: Local onde o Git armazena o que será commitado, ou seja, o local entre a working tree e o repositório Git em si.
