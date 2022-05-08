@@ -7,7 +7,19 @@ git config --local //(para o projeto)
 git config --global //(para o computador)
 git oneline //visualizar commits
 git log -p //visualizar modificações, basta digitar q para sair do modo scroll
+git log --graph //mostra linha de desenvolvimentos
 https://devhints.io/git-log //mais opções de git log
+git branch nome_da_branch //criar uma nova branch
+git branch //lista todas as branches
+git checkout nome_da_branch //mudar para a branch
+git pull //atualiza a branch atual
+
+--------------------------------------------------------------------------------------------------------------------
+REALIZANDO UM MERGE => SUPER IMPORTANTE
+--------------------------------------------------------------------------------------------------------------------
+git checkout master git merge nome_da_branch_feature //realizando merge
+git checkout master / git rebase titulo //pega todos os commit de titulo, coloca na master e deixa o último commit da master em último
+
 
 IMPORTANTE
 HEAD: Estado atual do nosso código, ou seja, onde o Git os colocou
