@@ -1,0 +1,149 @@
+==========================================================================================================================================
+							GERAL 
+==========================================================================================================================================
+1. CONCEITOS BÁSICOS
+2. TIPOS DE CLOUD COMPUTING
+3. TIPOS DE INSTALAÇÃO DE CLOUD COMPUTING
+4. SHARED RESPONSIBILITYMO MODEL (MODELO DE RESPONSABILIDADE COMPARTILHADA)
+5. ESTRATÉGIAS E PERSPECTIVAS DE CLOUD
+
+==========================================================================================================================================
+						1. CONCEITOS BÁSICOS
+==========================================================================================================================================
+Cloud computing é a entrega sob demanda (on demand) de recursos de computação, banco de dados, armazenamento, aplicações ou qualquer outro recurso de tecnologia que é entregue através de uma plataforma via internet, onde o pagamento e preços é baseado em consumo (pay-as-you-go).
+
+Vantagens:
+- Mudança na modalidade de gastos: mudança de aquisição de bens (CAPEX) para modelo de despesa variável /operacional (OPEX).
+- Economia de escala: não irá precisar comprar servidores, storages, geradores de energia, construir prédios, manutenção, segurança, entre outros.
+- Capacidade: irá evitar de comprar demais e perder dinheiro, ou comprar a menos e ter problemas para suportar o negócio. No Cloud Computing você cresce ou diminui a capacidade necessária para atender seu negócio pagando apenas o que consumir ao longo do tempo.
+- Agilidade: recursos estão disponíveis imediatamente.
+- Economia: deixa de gastar dinheiro para comprar e manter data centers, e foco no que de fato é importante para o negócio.
+- Global em minutos (Global reach): executar recursos em data centers de diferentes países, alcançando globalmente usuários.
+- Disponibilidade (Availability)
+- Elasticidade (Elasticity): Diminuir e aumentar recursos para atender a demanda necessária.
+
+CLOUD BENEFITS
+Alta Disponibilidade - High Availability
+Escalabilidade - Scalability
+Alcance Global - Global Reach
+Recuperação de Desastres - Disaster Recover
+Tolerância a Falhas - Fault Tolerance
+Elasticidade - Elasticity
+Capacidades de Latência do Cliente - Customer Latency Capabilities
+
+Vantagens de mover infraestrutura de on-premiss para AWS Cloud:
+- Focar em atividades de negócios.
+- Agilidade.
+- Custos de acordo com demanda/uso.
+
+Modelo baseado em consumo
+CAPEX vs OPEX
+CAPEX: Despesas de capital
+OPEX: Despesas operacionais, paga conforme o uso!
+
+==========================================================================================================================================
+						2. TIPOS DE CLOUD COMPUTING
+==========================================================================================================================================
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Tipos de Cloud Computing:
+------------------------------------------------------------------------------------------------------------------------------------------
+
+IaaS - Infraestrutura como Serviço: 
+- Fornecimento de infraestrutura computacional como serviço, que envolve processamento e armazenamento de forma transparente. Utiliza-se de mecanismos de virtualização, passa a possuir todos os recursos computacionais.
+- O contratante gerencia os servidores, sejam físicos ou virtuais.
+- O contratante gerencia os sistemas operacionais e softwares adicionais (manter atualizado, instalar antivirus, patch segurança, atualização).
+- O contratante não tem responsabilidade sobre o que você faz com os recursos (servidores). Se você tiver algum tipo de problema, por exemplo má configuração, a responsabilidade é sua.
+
+Empresas em geral compram serviços de hospedagem.
+
+Exemplo: máquina virtual, rede, load balancers, firewalls.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+PaaS - Plataforma como Serviço
+------------------------------------------------------------------------------------------------------------------------------------------
+
+- Provê ambiente para construção, teste e deploy de aplicações de software, sem focar em gerenciar a infraestrutura.
+- O datacenter é responsável pelos recursos físicos ou virtuais, sistemas operacionais, softwares, alguns itens de segurança. Responsável por toda a infraestrutura, até a camada de software.
+- Conjunto de hardware e software, facilitando a implantação de aplicações sem o custo e a complexidade de compra de licenciamento e gerenciamento de softwares.
+- O contratante é responsável pela aplicação.
+
+Aqui, por exemplo, se você quiser colocar um website no ar, a AWS te provê o ambiente, e você só irá precisar fazer o upload e configuração da aplicação.
+
+Exemplo: enviar o pacote do seu código e fazer com que sejam executados, sem acessar o hardware.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+SaaS - Software como Serviço
+------------------------------------------------------------------------------------------------------------------------------------------
+
+- Usuários conectam e usam aplicativos baseados em cloud na internet.
+- Fornecimento de um software distribuído para os clientes como serviço, implementa-se em plataforma Web, e acessa-se pelos clientes através da Internet. Todo o controle e gerenciamento da rede, sistemas operacionais, servidores e armazenamento é feito pelo provedor de serviço.
+- Você praticamente usa o serviço e não tem que se preocupar com nada. Um bom exemplo disso é o serviço de email como Gmail, a própria Udemy, Office 365, entre outros. Fornecimento de um software distribuído para os clientes como serviço, implementa-se em plataforma Web, e acessa-se pelos clientes através da Internet. Todo o controle e gerenciamento da rede, sistemas operacionais, servidores e armazenamento é feito pelo provedor de serviço.
+
+Exemplo: Microsoft Office 365, Gmail, Calendários, Udemy.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Serverless
+------------------------------------------------------------------------------------------------------------------------------------------
+
+- O termo pode gerar confusão, pois indica que não há servidor, mas na verdade se refere ao fato que você não está adquirindo um servidor próprio, pois por trás dos panos existirá um, mas que você não precisará se preocupar ou ter de lidar com o mesmo.
+- Em um modelo PaaS por exemplo, poderá haver diversos planos de acordo com a performance, e a escalabilidade é a sua responsabilidade.
+- Em um modelo Serverless, você não irá precisar se preocupar com nenhum dos dois, a idéia é que você irá deixar as suas responsabilidades com o servidor de cloud, e irá pagar apenas pelo o que você precisa e pelo o que você usa.  No Serverless, você pode pagar nada ou quase nada, se caso não utilizar o serviço ou não houver demanda.
+
+Exemplo de produtos Serverless da AWS: Lambda, DynamoDB.
+
+==========================================================================================================================================
+						3. TIPOS DE INSTALAÇÃO DE CLOUD COMPUTING
+==========================================================================================================================================
+Public Cloud: Infraestrutura de nuvem é provisionada para uso público, através do modelo pague por uso. Geralmente são oferecidos por organizações de grandes públicos para oferecer essa capacidade. Nesse modelo, o provedor possui a infraestrutura de hardware e rede.
+
+Exemplos: AWS (Amazon Web Services), Microsoft Azure, Google Cloud.
+
+Hybrid Cloud: Combinação entre pública e privada. Você possui uma cloud privada sua, e conecta o seu data center com outra cloud pública. Basicamente você está estendendo a sua infraestrutura, para o Cloud.
+
+Private Cloud: Similar ao cloud, exceto que o consumidor possui ou arrenda o serviço, e possui acesso exclusivo ao hardware. Infraestrutura de nuvem é provisionada para uso exclusivo da organização que contratou o serviço. Os recursos de TI, aplicativos, computação, armazenamento e sistema de rede são oferecidos como serviço, sob demanda e com pagamento de acordo com o uso. Normalmente é uma instalação física dentro do seu datacenter, onde todo o gerenciamento é feito por você.
+
+Community Cloud: Infraestrutura de nuvem é compartilhada por diversas organizações e suporta uma comunidade que possui interesses em assuntos comuns (exemplo notícias). O gerenciamento pode ser feito pelas organizações que fazem parte da comunidade ou por terceiros, podendo existir tanto fora ou dentro das organizações (ou seja, pode ser privada ou pública).
+
+
+==========================================================================================================================================
+						4. SHARED RESPONSIBILITYMO MODEL (MODELO DE RESPONSABILIDADE COMPARTILHADA)
+==========================================================================================================================================
+Responsabilidades da AWS:
+
+- Infraestrutura física (data center, virtualização, etc..)
+- Segurança física dos data centers.
+- Disponibilidade de capacidade computacional.
+- Manter firewall e rede em um nível de hardware.
+- RDS: Atualização de software, backup do banco de dados.
+
+Responsabilidades do Consumidor:
+- Dados da aplicação.
+- Contas e permissões.
+- Configurações de rede e firewall em nível de software.
+- Manter criptografia server-side.
+- EC2: Configuração e atualização do sistema operacional, atualização de segurança e rede.
+- S3: Configuração de criptografia do lado do servidor.
+
+Responsabilidade Compartilhada:
+- Segurança.
+- Monitoramento.
+- Controle de Rede.
+
+==========================================================================================================================================
+						5. ESTRATÉGIAS E PERSPECTIVAS DE CLOUD
+==========================================================================================================================================
+Estratégias de migração de Cloud:
+
+1. Repurchasing: substituir uma aplicação existente com uma versão baseada em cloud, por exemplo encontrada na AWS Marketplace.
+2. Rehosting: mover uma aplicação para o cloud com pouca ou nenhuma modificação.
+3. Replatforming: envolve selecionamento de aspectos de otimização de uma aplicação para alcanças benefícios na nuvem sem alterar o core da arquitetura da aplicação.
+4. Retire: remover algo.
+5. Revisit: revisitar ou fazer nada por enquanto.
+
+Perspectivas de Adoção de Cloud:
+
+Operational Perspective: utilizar cargas de trabalho para atender requisitos de negócio dos stakeholders. Princípios para operação no cloud através de utilização das melhores práticas agile.
+Bussiness Perspective: mover de um modelo que separa negócios e estratégias de TI para um modelo de negócios que integra estratégia de TI.
+People Perspective: ajuda os funcionários de RH preparem os seus times de adoção de cloud ao atualizar processos, organizações e habilidades da staff para incluir competências baseadas em cloud.
+Governance Perspective: permite entender como atualizar as habilidades da staff e processos organizações que são necessários para atender governança de negócios no cloud
