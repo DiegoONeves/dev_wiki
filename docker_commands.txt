@@ -1,0 +1,87 @@
+======================== INFORMAÇÕES ======================== 
+"Imagens são receitas para se criar os containers"
+"Imagens são compostas por uma ou mais camadas"
+"A instrução FROM é usada para definirmos uma imagem como base para a nossa."
+"A instrução ARG carrega variáveis apenas no momento de build da imagem, enquanto a instrução ENV carrega variáveis que serão utilizadas no container."
+"Container nada mais é que um aglomerado de imagens com uma fina camada de escrita"
+
+======================== COMANDOS ======================== 
+sudo docker run hello-world
+docker pull 'nome da imagem'
+docker run 'nome da imagem'
+docker ps //exibe os containers em execução no momento
+docker container ls 
+docker container ls -a //exibe containers que não estão mais em execução
+docker stop 'id'
+docker start 'id'
+docker pause 'id'
+docker unpause 'id' //iniciar um container pausado
+docker exec -it 'id' bash //se for navegar dentro do ubuntu por exemplo
+docker rm 'id' //remove container
+docker rm $(docker container ls -aq) --force //remove todos os containers
+docker run -d //não vai travar o terminal
+docker port 'id' //mostra a porta mapeada
+docker run -d -p 8080:45156 //mapeia uma porta da máquina física para a máquina do container
+docker run -p 8081:6000 -d neves/app-node:1.4 //-d não trava o terminal e o -p mapeia as portas
+docker images ou docker images ls //litas todas as imagens
+docker inspect 'id' //para obter detalhes sobre um container
+docker history 'id' //visualizar todas as camadas de imagens que formam o container
+docker build -t 'path':'etiqueta' .
+-t serve para etiquetar a imagem
+docker stop $(docker container ls -q) //parar todos os containers
+docker push neves/app-node:1.4
+docker tag 'tag antiga' 'tag nova'
+docker rmi $(docker image ls -aq) --force //remove todas imagens
+docker network ls //lista as redes padrões do docker
+
+======================== BIND MOUNTS ======================== 
+docker run -it --mount type=bind,source=/home/teste/volume-docker,target=/app ubuntu bash
+======================== VOLUMES ======================== 
+docker volume ls //listar os volumes
+docker volume create meu-volume //criando um novo volume
+docker run -it -v meu-volume:/app ubuntu bash
+docker run -it --mount source=meu-volume,target=/app ubuntu bash
+======================== REDES ======================== 
+docker network create --drive bridge minha-brodge 
+docker run -it --name ubuntu1 --network minha-bridge ubuntu bash
+======================== COMPOSE ======================== 
+docker-compose -d up //executando em modo detect
+docker-compose down
+
+
+======================== O que aprendemos? ======================== 
+Máquinas virtuais possuem camadas adicionais de virtualização em relação a um container;
+Containers funcionam como processos no host;
+Containers atingem isolamento através de namespaces;
+Os recursos dos containers são gerenciados através de cgroups.
+---------------------------------------------------------------------------------------------------------------------------------
+O Docker Hub é um grande repositório de imagens que podemos utilizar;
+A base dos containers são as imagens;
+Como utilizar comandos acerca do ciclo de vida dos containers, como: docker start, para iniciar um container que esteja parado; docker stop, para parar um que esteja rodando; docker pause, para pausar um container e docker unpause para iniciar um container pausado; -Conseguimos mapear portas de um container com as flags -p e -P.
+---------------------------------------------------------------------------------------------------------------------------------
+Imagens são imutáveis, ou seja, depois de baixadas, múltiplos containers conseguirão reutilizar a mesma imagem;
+Imagens são compostas por uma ou mais camadas. Dessa forma, diferentes imagens são capazes de reutilizar uma ou mais camadas em comum entre si;
+Podemos criar nossas imagens através de Dockerfiles e do comando docker build;
+Para subir uma imagem no Docker Hub, utilizamos o comando docker push.
+---------------------------------------------------------------------------------------------------------------------------------
+Quando containers são removidos, nossos dados são perdidos;
+Podemos persistir dados em definitivo através de volumes e bind mounts;
+Bind mounts dependem da estrutura de pastas do host;
+Volumes são gerenciados pelo Docker;
+Tmpfs armazenam dados em memória volátil.
+---------------------------------------------------------------------------------------------------------------------------------
+O docker dispõe por padrão de três redes: bridge, host e none;
+A rede bridge é usada para comunicar containers em um mesmo host;
+Redes bridges criadas manualmente permitem comunicação via hostname;
+A rede host remove o isolamento de rede entre o container e o host;
+A rede none remove a interface de rede do container;
+Podemos criar redes com o comando docker network create.
+---------------------------------------------------------------------------------------------------------------------------------
+O Docker Compose é uma ferramenta de coordenação de containers;
+Como instalar o Docker Compose no Linux;
+Como iniciar containers em conjunto com o comando docker-compose up;
+Como criar um arquivo de composição e definir instruções de containers, redes e serviços.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+

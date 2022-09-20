@@ -1,0 +1,3 @@
+É um register privado dentro da AWS
+Como funciona
+O Amazon ECR é um registro de contêiner totalmente gerenciado que oferece hospedagem de alta performance para que você possa implantar imagens e artefatos de aplicações de forma confiável em qualquer lugar.

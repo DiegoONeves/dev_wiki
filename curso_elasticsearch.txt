@@ -1,0 +1,36 @@
+Relacional = Search
+Shard = Partições
+Instância = Index (Catálogo)
+Tabela = Type (Pessoa)
+Schema = Mapping
+Tupla = Document
+Coluna = Atributo
+==========================================================================================================================================
+COMANDOS
+==========================================================================================================================================
+HEAD - consulta se documento existe sem carregar o mesmo
+-------------------------------------------------------------------------------------------------------------------------------------------
+MUITO CUIDADO ao atualizar um documento parcialmente, nunca use PUT! use POST _update
+
+POST /catalogo/pessoas/1/_update
+{
+    "doc": {
+        "nome": "Douglas Quintanilha"
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------
+Todos os campos no ElasticSearch são indexados
+http://localhost:9200/catalogo/pessoas/_search
+-------------------------------------------------------------------------------------------------------------------------------------------
+Limitar quantidade de itens na busca, igual o TOP do SQL  &size=1
+Paginação: _search?q=ingredientes:farinha&size=10&from=20
+
+ANALIZERS
+Espaço em branco (whitespace)
+Simples (simple)
+Padrão (standart)
+Idioma (portuguese, english)
+http://localhost:9200//catalogo_v2/pessoas/_search?q=musica+AND+brasil 
+
+
+

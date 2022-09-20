@@ -1,0 +1,930 @@
+=======================================================================================================================================================================
+								IAM - Identity Access Management
+=======================================================================================================================================================================
+Grupos
+ Usuarios
+   Permissões
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Multifactor Auth eleva muito a segurança
+Identity Federation	=> AD (Active Directory) - Da mesma forma usada no Itaú
+		    	=> Facebook
+			=> Linkedin
+Permissions 
+	Aplica permissões a usuários específicos
+			Por exemplo, um usuário que só pode criar EC2 Small
+	Password 
+	PSI DSS - Compliance
+Usuários = Contas
+Você pode organizar as contas em grupos, por exemplo:
+	Usuários que são do grupos de Databases, S3, EC2 e etc.
+Roles => Regras de acesso de usuários, grupos ou serviços
+Policies => Determina o que um usuário pode fazer
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criando Multi factor Authenticator
+
+Pode usar Virtual MFA device => instalado no smartphone (mais usado pelas empresas)
+U2F security key => dispositivo específico
+Other hardware MFA device => token
+
+Create individual users
+SELECT AWS access type	
+		Programmatic access (Geralmente devs)
+			Access key e Secret access key
+			Download da key (se nao fizer, tem que excluir o usuário e criar novamente)
+		AWS management console access (Geralmente arquitetos)
+			Criar password
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criando usuários no IAM
+- Nome => setado via CLI ou Console
+- Password => setado via CLI ou Console
+- Grupo
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criando um grupo
+	Podemos associar grupos com departamentos (Financeiro,RH,TI) ou funções (Servers,Database,Network,Firewall), este último é a melhor opção!
+	Criado um grupo e é possível adicionar uma Policy
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Password Policy
+=======================================================================================================================================================================
+								EC2 - Elastic Computing
+=======================================================================================================================================================================
+Máquinas virtuais
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4 Tipos:
+	1. On Demand - Você pode subir, derrubar, ligar ou desligar uma VM e pagar por horas/minutos/segundos utilizados. Pagamento é feito depois do uso. Garante um uso mais elástico.
+
+	2. Reserved - A vantagem está na parte financeira, é bem semelhante com a primeira opção, contudo você pode reservar, por exemplo, uma aplicação que fica no ar por um longo prazo de tempo e não recebe nenhuma variação, estável, um software de vendas por exemplo. Você provavelmente terá um bom desconto, até 80% mais barato, porém você assume um contrato de 1 a 3 anos, deve ser pago antecipado. Serviços mais calmos e parados.
+	
+	3. Spot - Uma aplicação específica que deve ficar ligada durante o horário comercial por exemplo, depende da Amazon aceitar ou não o BID
+	
+	4. Dedicated Hosts - Custam mais - Muito usado por empresas grandes que necessitam de muita proteção como dados de cartões de crédito.
+
+
+EBS: significa Elastic Block Storage => não fica dentro da máquina, mas próximo as EC2
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EC2 Princing
+Free tier =>
+              12 meses (free)
+              T2.micro
+On-demand =>
+              Cobrança feita em segundos (on-demand) -  mínimo de 60 segundos
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EBS - Elastic Block Storage
+              => nada mais é do que um disco rídigo virtualizado
+                            => HDD - ST1 valor mais baixo, acesso mais frequente (maior velocidade)
+                                   - SC1 cold disk, valor mais baixo, requer mais scans(verificações)
+                            => SDD - IO1 high performance, mais caro, muito espaço e maior velocidade
+                                   - GP2 caro também, não requer high performance
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Load Balancer
+
+
+=======================================================================================================================================================================
+								DynamoDB
+=======================================================================================================================================================================
+Ao verificar sua tabela no Amazon DynamoDB, você deve seguir as práticas recomendadas do DynamoDB para evitar picos repentinos de atividade de leitura.
+
+Você pode usar a técnica a seguir para minimizar o impacto de uma verificação na taxa de transferência provisionada de uma tabela.
+Reduzir o tamanho da página
+Como uma operação de digitalização lê uma página inteira (por padrão, 1 MB), você pode reduzir o impacto da operação de digitalização definindo um tamanho de página menor. A operação Scan fornece o parâmetro que você pode usar para definir o tamanho da página para sua solicitação. Cada solicitação Query ou Scan com um tamanho de página menor usa menos operações de leitura e cria uma "pausa" entre cada solicitação. Por exemplo, suponha que cada item tenha 4 KB e você defina o tamanho da página para 40 itens. Uma solicitação de consulta consumiria apenas 20 operações de leitura eventualmente consistentes ou 40 operações de leitura fortemente consistentes. Um número maior de operações de Consulta ou Verificação menores permitiria que suas outras solicitações críticas fossem bem-sucedidas sem limitação.
+
+
+=======================================================================================================================================================================
+								Route53
+=======================================================================================================================================================================
+Tipos de DNS (DNS Records)
+	Host A (A(IPV4) ou AAAA (IPV6))
+		=> 1.1.1.1
+	Alias (CNAME) => cursos.amazon.com (CNAME = cursos) Canonical Name
+	Mail Exchange (MX) => Onde está o servidor de e-mail, pode colocar um número, chamamos ele de prioridade
+	Service Record (SRV) => 
+				Indica qual serviço está rodando, LDAP por exemplo. 
+				TARGET 
+				Porta
+				Prioridade, a menor é sempre a melhor
+	Start Of Authority (SOA) => Relacionado a zona, NS (Name Server)
+	Name Server, informações de Records (Armazena o SOA)
+	Pointer (PTR) => IP => Name (Oposto do HA)
+
+
+
+=======================================================================================================================================================================
+								Elastic Beanstalk
+=======================================================================================================================================================================
+O console do Elastic Beanstalk e a EB CLI definem opções de configuração quando você cria um ambiente. Você também pode definir opções de configuração em configurações salvas e arquivos de configuração. Se a mesma opção for definida em vários locais, o valor usado será determinado por ordem de precedência.
+
+
+=======================================================================================================================================================================
+								CI/CD
+=======================================================================================================================================================================
+Continuous Integration
+Continuous Delivery/Deployment
+
+Escrever o código
+Testar o código
+Aprovar
+Deploy
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Code Commit
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O CodeCommit é um serviço de controle de código-fonte seguro, altamente escalável e gerenciado que hospeda repositórios Git privados.
+
+=> Source Code
+=> Versions
+	=> Trackings
+=> Updates
+=> Collaborations
+
+Posso manipular via 
+=> upload
+=> GIT
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Code Deploy
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O que é CodeDeploy?
+
+O CodeDeploy é um serviço de implantação que automatiza implantações de aplicativos em instâncias do Amazon EC2 em instâncias locais, em funções Lambda sem servidor ou serviços do Amazon ECS.
+
+Integra com:
+AWS Pipeline
+Github
+Jenkins
+GitLab
+Jira
+
+Dois tipos de Deploy
+In-place 
+***Possui downtime***
+	=> primeiro derruba
+	=> atualiza
+	=> liga a máquina
+
+Blue/Green
+	=> é melhor
+	=> criado novas instâncias
+	=> não tem downtime
+
+o arquivo para configurar o code deploy é o appspec.yaml
+deve ser criada uma aplicação dentro do code deploy create-deploy
+se existe mais de uma server, é possível usar o blue/green
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Code Pipeline
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criar workflows de implantação
+Testa os componentes da aplicação
+Commit
+=>
+Update
+=>
+Build
+=> 
+Test
+=>
+Deploy
+Quando um processo falha, toda a implantação é interrompida
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+área:
+AWS CodeBuild
+problema: Você tem acesso para executar a compilação, mas não tem acesso ao projeto. Você deseja especificar um local de origem diferente para a compilação.
+Solução:
+Especifique o novo local da compilação em um novo arquivo buildspec.yml e use o comando start-build.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+=======================================================================================================================================================================
+						SIMULADO - AWS Certified Developer - Associate
+=======================================================================================================================================================================
+1 - Uma organização implantou seus sites estáticos no Amazon S3. Agora, o desenvolvedor tem um requisito para fornecer conteúdo dinâmico usando uma solução sem servidor. Qual combinação de serviços deve ser usada para implementar um aplicativo sem servidor para o conteúdo dinâmico? (Selecione duas)
+A. Amazon API Gateway 
+B. Amazon EC2
+C. AWS ECS
+D. AWS Lambda 
+E. AWS Kinesis
+
+Correta: A,D 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 - Um desenvolvedor foi solicitado a criar um ambiente AWS Elastic Beanstalk para um aplicativo web de produção que precisa lidar com milhares de solicitações. Atualmente, o ambiente dev está executando uma instância t1.micro. Qual é a melhor maneira para o desenvolvedor provisionar um novo ambiente de produção com uma instância m4.large em vez de uma t1.micro?
+
+A. Use o CloudFormation para migrar o tipo de instância do Amazon EC2 de t1.micro para m4.large.
+B. Crie um novo arquivo de configuração com o tipo de instância como m4.large e faça referência a esse arquivo ao provisionar o novo ambiente.
+C. Provisione uma instância m4.large diretamente no ambiente de desenvolvimento e implante no novo ambiente de produção.
+D. Altere o valor do tipo de instância no arquivo de configurações para m4.large usando o comando da CLI update autoscaling group.
+
+Correta: B
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 - Você está usando modelos do AWS SAM para implantar um aplicativo sem servidor. Qual dos seguintes recursos incorporará aplicativos aninhados de buckets do Amazon S3?
+
+A. AWS::Serverless::API
+B. AWS::Serverless::Application
+C. AWS::Serverless::LayerVersion
+D. AWS::Serverless::Function
+
+Correta: B
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4 - Um aplicativo hospedado na AWS foi configurado para usar uma tabela do DynamoDB. Vários itens são gravados na tabela do DynamoDB. Como parte de uma estratégia de arquivamento, esses itens estarão acessíveis em um determinado período de tempo, após o qual poderão ser arquivados e excluídos. Qual das opções a seguir é uma maneira ideal de gerenciar a exclusão dos itens obsoletos?
+
+A. Execute uma varredura na tabela para os itens obsoletos e emita a operação Delete.
+B. Crie uma coluna adicional para armazenar a data. Execute uma consulta para os objetos obsoletos e execute a operação Delete.
+C. Habilite o controle de versão para os itens no DynamoDB e exclua a última versão acessada.
+D. Habilite o TTL para os itens no DynamoDB.
+
+Correta: D
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5 - Você criou os seguintes estágios no CodePipeline: Source => Build => Staging. O que acontece se houver uma falha detectada no estágio "Build"?
+
+A. Uma reversão acontecerá no estágio "Fonte".
+B. A etapa "Build" será tentada novamente.
+C. A etapa "Build" será ignorada e a etapa "Staging" será iniciada.
+D. Todo o processo será interrompido.
+
+Correta: D
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6 - Sua equipe acabou de desenvolver uma nova versão de um aplicativo existente. Este é um aplicativo baseado na web hospedado na AWS. Atualmente, o Route 53 está sendo usado para apontar o nome DNS da empresa para o site. Sua Gerência o instruiu a entregar o novo aplicativo a uma parte dos usuários para teste. Como você pode conseguir isso?
+
+A. Transfira o aplicativo para o Elastic beanstalk e use o recurso Swap URL.
+B. Use as políticas de roteamento ponderadas do Route 53.
+C. Transfira o aplicativo para o Opswork criando uma nova pilha.
+D. Use as políticas de roteamento de failover do Route 53.
+
+Correta: B
+
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7 - Você está desenvolvendo um aplicativo que será hospedado em uma instância do EC2. Isso fará parte de um grupo de escalonamento automático. O aplicativo precisa obter o IP privado da instância para enviá-lo para um aplicativo baseado em controlador. Qual dos seguintes pode ser feito para conseguir isso?
+
+A. Consultar os metadados da instância
+B. Consultar os dados do usuário da instância
+C. Faça com que um administrador obtenha o endereço IP do console
+D. Faça o aplicativo executar IFConfig
+
+Correta: A
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8 - Seu aplicativo de análise de log atual leva mais de quatro horas para gerar um relatório dos 10 principais usuários do seu aplicativo da web. Você foi solicitado a implementar um sistema que possa relatar essas informações em tempo real, garantir que o relatório esteja sempre atualizado e lidar com aumentos no número de solicitações para seu aplicativo da web. Escolha a opção que seja econômica e possa atender aos requisitos.
+
+
+A. Publique seus dados no CloudWatch Logs e configure seu aplicativo no Autoscale para lidar com a carga sob demanda.
+B. Publique seus dados de log em um bucket do Amazon S3. Use o AWS CloudFormation para criar um grupo de Auto Scaling para dimensionar seu aplicativo de pós-processamento que está configurado para baixar seus arquivos de log armazenados em um Amazon S3.
+C. Poste seus dados de log em um fluxo de dados do Amazon Kinesis e inscreva seu aplicativo de processamento de log para que seja configurado para processar seus dados de log.
+D. Crie um cluster MySQL do Amazon RDS multi-AZ, publique os dados de log no MySQL e execute um trabalho de redução de mapa para recuperar as informações necessárias sobre contagens de usuários.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9 - Um aplicativo tem usado o AWS DynamoDB para seu armazenamento de dados de back-end. O tamanho da tabela agora aumentou para 20 GB e as verificações na tabela estão causando erros de limitação. Qual dos seguintes deve ser implementado agora para evitar tais erros?
+
+A. Large Page size
+B. Reduced page size
+C. Parallel Scans
+D. Sequential scans
+
+Correta: B
+
+https://aws.amazon.com/pt/blogs/developer/rate-limited-scans-in-amazon-dynamodb/
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10 - Você desenvolveu um conjunto de scripts usando o AWS Lambda. Esses scripts precisam acessar instâncias do EC2 em uma VPC. Qual das opções a seguir precisa ser feita para garantir que a função AWS Lambda possa acessar os recursos na VPC? (Selecione DOIS)
+
+A. Certifique-se de que os IDs de sub-rede estejam configurados na função do Lambda.
+B. Certifique-se de que os IDs NACL estejam configurados na função Lambda.
+C. Certifique-se de que os IDs do grupo de segurança estejam configurados na função do Lambda.
+D. Certifique-se de que os IDs de log de fluxo da VPC estejam configurados na função do Lambda.
+
+
+Correta: A,C
+
+https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html
+https://aws.amazon.com/pt/about-aws/whats-new/2016/02/access-resources-within-a-vpc-using-aws-lambda/
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11 - Você está desenvolvendo um aplicativo que fará uso do Amazon Kinesis. Devido à alta taxa de transferência, você decide ter vários estilhaços para os fluxos. Qual das opções a seguir é VERDADEIRA quando se trata de processar dados em vários fragmentos?
+
+A. Você não pode garantir a ordem dos dados em vários shards. Só é possível dentro de um shard.
+B. A ordem dos dados é possível em todos os estilhaços em um fluxo.
+C. A ordem dos dados não é possível em streams do Kinesis.
+D. Você precisa usar o Kinesis firehose para garantir a ordem dos dados.
+
+Correta: A
+
+https://aws.amazon.com/pt/blogs/database/how-to-perform-ordered-data-replication-between-applications-by-using-amazon-dynamodb-streams/
+https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+12 - Sua empresa solicitou a manutenção de um aplicativo usando o Elastic Beanstalk. Às vezes, você normalmente atinge o limite de versão do aplicativo ao implantar novas versões do aplicativo. Qual das opções a seguir é a maneira mais eficaz de gerenciar esse problema?
+
+A. Crie vários ambientes e implante as diferentes versões em diferentes ambientes.
+B. Crie uma política de ciclo de vida da versão do aplicativo.
+C. Crie vários aplicativos e implante as diferentes versões em diferentes aplicativos.
+D. Exclua as versões do aplicativo manualmente.
+
+Correta: B
+
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-lifecycle.html
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+13 - Como desenvolvedor, você habilitou o log do servidor em um bucket do S3. Você tem uma página da Web estática simples com páginas CSS carregadas no bucket que tem 1 MB de tamanho total. Após uma duração de 2 semanas, você volta e vê que o tamanho do bucket aumentou para 50 MB. Qual dos seguintes poderia ser uma razão para isso?
+
+A. Você também ativou o CRR no bucket. É por isso que o espaço está sendo consumido.
+B. Você também ativou a criptografia no bucket. É por isso que o espaço está sendo consumido.
+C. Os logs de acesso ao servidor são configurados para serem entregues no mesmo bucket que o bucket de origem.
+D. O monitoramento foi ativado para o bucket.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14 - Uma empresa possui um modelo Cloudformation que é usado para criar uma enorme lista de recursos. Ele cria uma VPC, sub-redes, instâncias do EC2, grupos de escalonamento automático, balanceadores de carga etc. Qual dos seguintes deve ser considerado ao projetar esses modelos de Cloudformation?
+
+A. Certifique-se de criar uma pilha inteira do modelo.
+B. Procure dividir os modelos em modelos menores e gerenciáveis.
+C. Empacote os modelos e use o comando cloudformation deploy.
+D. Empacote os modelos e use o comando cloudformation package.
+
+Correta: B
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+15 - Um aplicativo tem um banco de dados em uma instância do AWS RDS. Quando o tráfego é alto, o tempo de resposta do aplicativo aumenta, pois há muitas consultas de leitura no banco de dados RDS. Qual das opções a seguir pode ser usada para diminuir o tempo de resposta do aplicativo?
+
+A. Coloque uma distribuição do CloudFront na frente do banco de dados.
+B. Habilite Réplicas de Leitura para o banco de dados.
+C. Altere o banco de dados de RDS para DynamoDB.
+D. Habilite o Multi-AZ para o banco de dados.
+
+
+Correta: B
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+16 - Você implantou um aplicativo em uma instância do EC2. Esse aplicativo faz chamadas para um serviço do DynamoDB. Existem vários problemas de desempenho presentes no aplicativo. Você decide usar o serviço XRay para depurar os problemas de desempenho. Você não consegue ver as trilhas no serviço XRay. Qual dos seguintes poderia ser o problema subjacente? Escolha 2 respostas entre as opções dadas abaixo.
+
+A. O daemon do X-Ray não está instalado na instância do EC2.
+B. A AMI correta não é escolhida para a instância do EC2.
+C. Certifique-se de que a função do IAM anexada à instância tenha permissão para fazer upload de dados no X-Ray.
+D. Certifique-se de que a função do IAM anexada à instância tenha permissão para fazer upload de dados no Cloudwatch.
+
+Correta: A,C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+17 - Você está planejando implantar um aplicativo para a função de trabalhador no Elastic Beanstalk. Além disso, este aplicativo de trabalho executará as tarefas periódicas. Qual das opções a seguir é obrigatória como parte da implantação?
+
+A. Um arquivo appspec.yaml
+B. Um arquivo cron.yaml
+C. Um arquivo cron.config
+D. Um arquivo appspec.json
+
+Correta: B
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+18 - Você está desenvolvendo um aplicativo que será hospedado no AWS Lambda. A função fará chamadas para um banco de dados. Um requisito é que todas as cadeias de conexão do banco de dados sejam mantidas seguras. Qual das opções a seguir é a maneira MAIS segura de implementar isso?
+
+A. Coloque os valores das strings de conexão em um modelo do CloudFormation.
+B. Coloque a string de conexão do banco de dados no arquivo app.json e armazene-a em um repositório Git.
+C. O Lambda precisa fazer referência ao AWS Systems Manager Parameter Store para a string de conexão do banco de dados criptografada.
+D. Coloque a string de conexão do banco de dados na própria função do AWS Lambda, pois todas as funções do Lambda são criptografadas em repouso.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+19 - Atualmente, uma empresa possui um aplicativo que funciona com o DynamoDB. O aplicativo é um aplicativo de alta geração de receita para a empresa. Seu tempo de resposta atual para suas cargas de trabalho de leitura é da ordem de milissegundos. Mas para aumentar os acessos às suas páginas, eles querem reduzir o tempo de resposta para microssegundos. Qual das opções a seguir você sugeriria para ser usado com mais preferência com o DynamoDB para atender a esse requisito?
+
+A. Considere implantar um ElastiCache na frente do DynamoDB.
+B. Considere usar tabelas globais do DynamoDB.
+C. Considere usar o acelerador DynamoDB.
+D. Considere usar uma taxa de transferência mais alta para as tabelas.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+20 - Qual das seguintes afirmações é verdadeira em relação a solicitações de leitura fortemente consistentes de um aplicativo para um DynamoDB com um cluster DAX?
+
+R. Todas as solicitações são encaminhadas ao DynamoDB e os resultados são armazenados em cache.
+B. Todas as solicitações são encaminhadas ao DynamoDB e os resultados são armazenados no Cache de itens antes de passar para o aplicativo.
+C. Todas as solicitações são encaminhadas ao DynamoDB e os resultados são armazenados no Query Cache antes de passar para o aplicativo.
+D. Todas as solicitações são encaminhadas ao DynamoDB e os resultados não são armazenados em cache.
+
+Correta: D
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+21 - Seu líder de equipe terminou de criar um projeto de compilação no console usando o AWS CodeBuild. Você tem acesso para executar a compilação, mas não tem acesso ao projeto. Você deseja especificar um local de origem diferente para a compilação. Como você pode conseguir isso?
+
+A. Emita o comando update project e especifique o novo local do build.
+B. Especifique o novo local da compilação em um novo arquivo buildspec.yml e emita o comando update-project.
+C. Especifique o novo local da compilação em um novo arquivo buildspec.yml e use o comando start-build.
+D. Especifique o novo local da compilação em um novo arquivo buildspec.yml e use o comando update-build.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+22 - Você acabou de criar uma função do AWS Lambda. Você está executando a função, mas a saída da função não é a esperada. Você precisa verificar e ver qual é o problema. Qual das opções a seguir pode ajudar o desenvolvedor a depurar o problema com a função do Lambda?
+
+A. Check Cloudwatch logs
+B. Check VPC Flow Logs
+C. Check AWS Trusted Advisor
+D. Check AWS Inspector
+
+Correta: A
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+23 - Você foi contratado como desenvolvedor para trabalhar em um aplicativo. Este aplicativo é hospedado em uma instância do EC2 e interage com uma fila SQS. Foi notado que quando o aplicativo está puxando mensagens, muitas respostas vazias estão sendo retornadas. Que alteração você pode fazer para garantir que o aplicativo use a fila SQS de forma eficaz?
+
+A. Use long polling
+B. Defina um tempo limite de visibilidade personalizado
+C. Use short polling
+D. Implemente a retirada exponencial.
+
+Correta: A
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+24 - Sua equipe atualmente desenvolveu um aplicativo usando contêineres do Docker. Como líder de desenvolvimento, agora você precisa hospedar esse aplicativo na AWS. Você também precisa garantir que o serviço da AWS tenha serviços de orquestração integrados. Qual dos seguintes pode ser usado para esta finalidade?
+
+A. Considere construir um cluster Kubernetes em instâncias do EC2.
+B. Considere construir um cluster Kubernetes em instâncias do EC2.
+C. Considere usar o Elastic Container Service.
+D. Considere usar o serviço Simple Storage para armazenar seus contêineres docker.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+25 - Você está desenvolvendo um aplicativo que está trabalhando com uma tabela do DynamoDB. Durante a fase de desenvolvimento, você deseja saber quanto da capacidade Consumida está sendo usada para as consultas que estão sendo disparadas. Como isso pode ser alcançado?
+
+R. As consultas por padrão enviadas pelo programa retornarão a capacidade consumida como parte do resultado.
+B. Certifique-se de definir ReturnConsumedCapacity na solicitação de consulta como TRUE.
+C. Certifique-se de definir ReturnConsumedCapacity na solicitação de consulta para TOTAL.
+D. Use a operação Scan em vez da operação de consulta.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+26 - Sua equipe de desenvolvimento está planejando trabalhar com o Amazon Step Functions. Qual das opções a seguir é uma prática recomendada ao trabalhar com trabalhadores de atividades e tarefas no Step Functions? Escolha 2 respostas entre as opções dadas abaixo.
+
+A. Certifique-se de especificar um tempo limite nas definições da máquina de estado.
+B. Podemos usar apenas 1 transição por estado.
+C. Se você estiver passando cargas maiores entre estados, considere usar o Simple Storage Service.
+D. Se você estiver transmitindo cargas úteis maiores entre estados, considere o uso de volumes do EBS.
+
+Correta: A,C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+27 - Sua equipe começou a configurar o CodeBuild para executar compilações na AWS. O código-fonte é armazenado em um bucket. Quando a compilação é executada, você está recebendo o erro abaixo: Erro: "O bucket que você está tentando acessar deve ser endereçado usando o endpoint especificado..." Ao executar uma compilação. Qual dos seguintes poderia ser a causa do erro?
+
+R. O bucket não está na mesma região que o projeto Code Build.
+B. Idealmente, o código deve ser armazenado em Volumes EBS.
+C. O controle de versão está habilitado para o bucket.
+D. A MFA está habilitada no bucket.
+
+Correta: A
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+28 - Sua equipe está atualmente gerenciando um conjunto de aplicativos para uma empresa na AWS. Agora há um requisito para realizar implantações Blue Green para o futuro conjunto de aplicativos. Qual dos seguintes pode ajudá-lo a conseguir isso? Escolha 2 respostas entre as opções dadas abaixo.
+
+A. Use Route53 com a política de roteamento de failover.
+B. Use Route53 com a política de roteamento ponderada.
+C. Certifique-se de que o aplicativo seja colocado atrás de um ELB.
+D. Certifique-se de que o aplicativo seja colocado em uma única AZ.
+
+Correta: B,C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+29 - Uma empresa contratou você para seu projeto de desenvolvimento em andamento. O projeto envolve o streaming de dados para streams do Amazon Kinesis de várias fontes de log. Você precisa analisar dados em tempo real usando SQL padrão. Qual dos seguintes pode ser usado para esta finalidade?
+
+A. AWS Kinesis Firehose
+B. AWS Kinesis Data Analytics
+C. AWS Athena
+D. AWS EMR
+
+Correta: B
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+30 - Você é desenvolvedor de uma empresa. Você precisa desenvolver um aplicativo que transfira os logs de várias instâncias do EC2 para um bucket do S3. Qual dos seguintes você usaria para esse fim?
+
+A. AWS Database Migration Service
+B. AWS Athena
+C. AWS Data Pipeline
+D. AWS EMR
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+=======================================================================================================================================================================
+						SIMULADO - AWS Certified Developer - Associate 2
+=======================================================================================================================================================================
+1 - Um site de jogos oferece aos usuários a capacidade de trocar itens de jogos entre si na plataforma. A plataforma exige que os registros de ambos os usuários sejam atualizados e persistidos em uma transação. Se alguma atualização falhar, a transação deverá ser revertida.
+Qual solução da AWS pode fornecer o recurso transacional necessário para esse recurso?
+
+A. Amazon DynamoDB com operações feitas com o parâmetro Consistent Read definido como true
+B. Amazon ElastiCache for Memcached com operações feitas em um bloco de transação
+C. Amazon DynamoDB com leituras e gravações feitas usando operações Transact*
+D. Amazon Aurora MySQL com operações feitas em um bloco de transação
+E. Amazon Athena com operações feitas dentro de um bloco de transação
+
+Correta: D
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 - Um desenvolvedor criou um aplicativo Java que faz solicitações HTTP diretamente aos serviços da AWS. O log do aplicativo mostra códigos de resposta HTTP 5xx que ocorrem em intervalos irregulares. Os erros estão afetando os usuários.
+Como o desenvolvedor deve atualizar o aplicativo para melhorar a resiliência do aplicativo?
+
+A. Revise o conteúdo da solicitação no código do aplicativo.
+B. Use o AWS SDK for Java para interagir com APIs da AWS.
+C. Escale horizontalmente o aplicativo para que mais instâncias do aplicativo estejam em execução.
+D. Adicione log adicional ao código do aplicativo.
+
+Correta: C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 - Uma empresa global tem um aplicativo móvel com dados estáticos armazenados em um bucket do Amazon S3 na região us-east-1. A empresa fornece o conteúdo por meio de uma distribuição do Amazon CloudFront. A empresa está lançando o aplicativo móvel na África do Sul. Os dados devem residir na região af-south-1. A empresa não quer implantar um cliente móvel específico para a África do Sul. O que a empresa deve fazer para atender a esses requisitos?
+
+A. Use o recurso de restrição geográfica do CloudFront para bloquear o acesso de usuários na África do Sul.
+B. Crie uma função Lambda@Edge . Associe a função Lambda@Edge como um gatilho de solicitação de origem à distribuição do CloudFront para alterar a região de origem do S3.
+C. Crie uma função Lambda@Edge . Associe a função Lambda@Edge como um gatilho de resposta do visualizador à distribuição do CloudFront para alterar a região de origem do S3.
+D. Inclua af-south-1 no nome de domínio alternativo (CNAME) da distribuição do CloudFront.
+
+Correta:A
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4 - Um desenvolvedor está testando uma função do AWS Lambda usando a CLI local do AWS Serverless Application Model (AWS SAM). O aplicativo implementado pela
+função do Lambda faz várias chamadas de API da AWS usando o kit de desenvolvimento de software (SDK) da AWS. O desenvolvedor deseja permitir que a função faça chamadas de API da AWS em uma conta de teste da AWS a partir do laptop do desenvolvedor. O que o desenvolvedor deve fazer para atender a esses requisitos?
+
+A. Edite o arquivo template.yml. Adicione a propriedade AWS_ACCESS_KEY_ID e a propriedade AWS_SECRET_ACCESS_KEY na seção Globals.
+B. Adicione um perfil de teste usando o comando aws configure com a opção --profile. Execute o AWS SAM usando o comando sam local invoke com a opção -profile.
+C. Edite o bloco template.yml. Para o recurso AWS::Serverless::Function, defina a função como uma função do IAM na conta da AWS.
+D. Execute a função usando o comando sam local invoke. Substitua o parâmetro AWS_ACCESS_KEY_ID e o parâmetro AWS_SECRET_ACCESS_KEY especificando a opção --parameter-overrides.
+
+Correta: B
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5 - Um desenvolvedor projetou um aplicativo em uma instância do Amazon EC2. O aplicativo faz solicitações de API para objetos em um bucket do Amazon S3.
+Qual combinação de etapas garantirá que o aplicativo faça as solicitações de API da maneira MAIS segura? (Escolha duas)
+
+A. Crie um usuário do IAM que tenha permissões para o bucket do S3. Adicione o usuário a um grupo do IAM.
+B. Crie uma função do IAM que tenha permissões para o bucket do S3.
+C. Adicione a função do IAM a um perfil de instância. Anexe o perfil de instância à instância do EC2.
+D. Crie uma função do IAM que tenha permissões para o bucket do S3. Atribua a função a um grupo da 1AM.
+E. Armazene as credenciais do usuário do IAM nas variáveis ​​de ambiente na instância do EC2.
+
+Correta: B,C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6 - Um desenvolvedor está configurando uma distribuição do Amazon CloudFront para que um novo aplicativo forneça criptografia em trânsito. O aplicativo está sendo executado na região eu-west-1. O desenvolvedor cria um novo certificado no AWS Certificate Manager (ACM) em eu-west-1, mas o certificado não fica visível nas configurações de distribuição do CloudFront. O que o desenvolvedor deve fazer para corrigir esse problema?
+
+A. Crie o certificado para o domínio na mesma região que o aplicativo. Certifique-se de que o nome de domínio alternativo (CNAME) nas configurações de distribuição corresponda ao nome de domínio no certificado.
+B. Crie o certificado na região eu-west-1. Certifique-se de que o nome de domínio alternativo (CNAME) nas configurações de distribuição corresponda ao nome de domínio no certificado.
+C. Recrie a distribuição do CloudFront na mesma região do certificado.
+D. Especifique o nome do certificado do ACM como o objeto raiz padrão da distribuição do CloudFront.
+
+Resposta: B
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 			
